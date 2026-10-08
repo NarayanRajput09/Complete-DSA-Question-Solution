@@ -1,0 +1,31 @@
+class Solution {
+    public ListNode mergeNodes(ListNode head) {
+        if(head == null){
+         return null;
+        }
+         else if(head.next == null){
+            return head;
+         }
+         
+         ListNode ptr = head.next;
+         ListNode dummy = new ListNode(0);
+          ListNode temp = dummy;
+         int count =0;
+         while(ptr != null){ 
+            if(ptr.val != 0){ 
+           count = count + ptr.val ; 
+            }
+
+       else{
+            ListNode n = new ListNode(count); 
+         temp.next = n; 
+         temp = temp.next; 
+        count = 0; 
+       }
+         ptr = ptr.next; 
+
+       }
+       
+       return dummy.next;
+    }
+}
